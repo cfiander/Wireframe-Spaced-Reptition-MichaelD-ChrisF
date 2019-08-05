@@ -1,55 +1,55 @@
 import React from 'react';
 import './App.css';
 import { Route, Link} from 'react-router-dom'
-import SignUp from './SignUp'
-import Recipes from './Recipes'
-import LandingPage from './LandingPage'
-import ScrollToTop from './ScrollToTop'
+import Dashboard from './Dashboard'
 import Login from './Login'
-import ExpandedRecipe from './ExpandedRecipe'
+import Registration from './RegistrationPage'
+import LearningPage from './LearningPage'
+import WrongAnswerPage from './WrongAnswerPage'
+import CorrectAnswerPage from './CorrectAnswerPage'
 
 function App() {
+  
   return (
     <div>
+      <header>
+      <h1>Spaced Reptition</h1></header>
     <nav>
         <ul className="navList">
-            <li>
-               <Link to={`/`}>Home</Link>
-            </li>
             <li>
                 <Link to={`/SignUp`}>Sign Up</Link>
             </li>
             <li>
                 <Link to={`/Login`}>Login</Link>
             </li>
-            <li>
-                <Link to={`/Recipes`}>Browse Recipes</Link>
-            </li>
         </ul>
     </nav>
+            
     <main>
           <Route
             exact path="/"
-            component={LandingPage}
+            component={Dashboard}
           />
-          <ScrollToTop>
           <Route 
-            exact path='/Recipes'
-            component={Recipes}
+            exact path='/Signup'
+            component={Registration}
           />
-          </ScrollToTop>
           <Route 
-            exact path='/SignUp'
-            component={SignUp}
+            exact path='/LearningPage'
+            component={LearningPage}
+          />
+          <Route 
+            exact path='/WrongAnswer'
+            component={WrongAnswerPage}
+          />
+          <Route 
+            exact path='/CorrectAnswer'
+            component={CorrectAnswerPage}
           />
           <Route 
             exact path='/Login'
             component={Login}
           />
-          <Route
-            path='/Recipes'
-            component={ExpandedRecipe}
-            />
     </main>
     <footer>Footer</footer>
     </div>
